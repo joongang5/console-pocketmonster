@@ -1,0 +1,10 @@
+{"array":[
+	{"id":1,"name":"몸통박치기","type":"ATTACK","level":1,"value":1,"sp":1},
+	{"id":2,"name":"할퀴기","type":"ATTACK","level":1,"value":1,"sp":1},
+	{"id":3,"name":"째려보기","type":"ATTACK","level":1,"value":1,"sp":1},
+	{"id":4,"name":"백만볼트","type":"ATTACK","level":1,"value":5,"sp":1},
+	{"id":5,"name":"불꽃세례","type":"ATTACK","level":1,"value":5,"sp":1},
+	{"id":6,"name":"물대포","type":"ATTACK","level":1,"value":5,"sp":1},
+	{"id":7,"name":"덩굴채찍","type":"ATTACK","level":1,"value":5,"sp":1},
+	{"id":8,"name":"단단해지기","type":"DEFENSE","level":1,"value":5,"sp":1}
+]}
