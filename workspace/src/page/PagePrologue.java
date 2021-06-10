@@ -24,7 +24,9 @@ public class PagePrologue extends Page {
 	}
 	
 	@Override
-	public void init() {
+	public void onEnable() {
+		super.onEnable();
+		
 		String[] names = {"피카츄", "파이리", "꼬부기", "이상해씨"};
 		
 		for (String name : names) {
@@ -40,7 +42,7 @@ public class PagePrologue extends Page {
 		if (player.wasInit()) {
 			System.out.println("뭐하러 다시 돌아왔나? 혼자 있고 싶으니 당장 나가게.");
 			System.out.println("철컥-");
-			PageManager.getInstance().setCurrentPage(PageType.WORLD);
+			PageManager.getInstance().changePage(PageType.WORLD);
 			return;
 		}
 		
@@ -85,6 +87,6 @@ public class PagePrologue extends Page {
 		System.out.println("철컥-");
 		System.out.println();
 		
-		PageManager.getInstance().setCurrentPage(PageType.WORLD);
+		PageManager.getInstance().changePage(PageType.WORLD);
 	}
 }

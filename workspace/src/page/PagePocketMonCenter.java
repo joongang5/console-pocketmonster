@@ -22,11 +22,6 @@ public class PagePocketMonCenter extends Page {
 	}
 	
 	@Override
-	public void init() {
-
-	}
-	
-	@Override
 	public void printAction() {
 		System.out.println("안녕하세요. 포켓몬센터입니다!");
 		System.out.println("이곳에서는 포켓몬의 체력을 회복합니다.");
@@ -59,6 +54,6 @@ public class PagePocketMonCenter extends Page {
 		System.out.println("안녕히가세요!");
 		System.out.println("철컥-");
 		
-		PageManager.getInstance().setCurrentPage(PageType.WORLD);
+		PageManager.getInstance().changePage(PageType.WORLD);
 	}
 }

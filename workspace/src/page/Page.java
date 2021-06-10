@@ -8,14 +8,14 @@ public abstract class Page {
 	
 	public abstract PageType getType();
 	
-	public abstract void init();
-	
-	public void printName() {
-		if (name == null) {
-			return;
+	public void onEnable() {
+		if (name != null) {
+			System.out.printf("[==%s==]\n", name);
 		}
-		System.out.printf("[==%s==]\n", name);
 	}
 	
+	public void onDisable() {}
+	
 	public abstract void printAction();
+	
 }

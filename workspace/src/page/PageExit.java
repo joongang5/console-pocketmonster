@@ -14,11 +14,6 @@ public class PageExit extends Page {
 	}
 	
 	@Override
-	public void init() {
-		// do nothing.
-	}
-	
-	@Override
 	public void printAction() {
 		System.out.println("프로그램이 종료되었습니다.");
 	}

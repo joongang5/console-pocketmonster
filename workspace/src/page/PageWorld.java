@@ -16,11 +16,6 @@ public class PageWorld extends Page {
 	public PageType getType() {
 		return PageType.WORLD;
 	}
-
-	@Override
-	public void init() {
-		
-	}
 	
 	@Override
 	public void printAction() {
@@ -36,7 +31,7 @@ public class PageWorld extends Page {
 			int input = InputManager.getInstance().getScanner().nextInt();
 			int areaIndex = input - 1;
 			if (areaIndex >= 0 && areaIndex < areaList.size()) {
-				PageManager.getInstance().forceChangePage(areaList.get(areaIndex));
+				PageManager.getInstance().changePage(areaList.get(areaIndex));
 				break;
 			}
 			

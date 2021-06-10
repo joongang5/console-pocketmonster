@@ -28,7 +28,9 @@ public class PageBattleZone extends Page {
 	}
 	
 	@Override
-	public void init() {
+	public void onEnable() {
+		super.onEnable();
+		
 		isPlaying = true;
 		
 		mainPocketMon = Player.getInstance().getMainPocketMon();
@@ -88,7 +90,7 @@ public class PageBattleZone extends Page {
 			System.out.printf("적의 %s는(은) 쓰러졌다!!\n", wildPocketMon.name);
 
 			mainPocketMon.addExp(wildPocketMon.exp);
-			PageManager.getInstance().setCurrentPage(PageType.WORLD);
+			PageManager.getInstance().changePage(PageType.WORLD);
 			return;
 		}
 		
@@ -98,15 +100,15 @@ public class PageBattleZone extends Page {
 			isPlaying = false;
 			
 			System.out.printf("%s가(이) 쓰러졌다!!\n", mainPocketMon.name);
-			PageManager.getInstance().setCurrentPage(PageType.WORLD);
+			PageManager.getInstance().changePage(PageType.WORLD);
 			return;
 		}
 	}
 	
 	private void changePocketMon() {
-		PageManager.getInstance().forceChangePage(PageType.CHANGE_POCKET_MON);
+		PageManager.getInstance().changePage(PageType.CHANGE_POCKET_MON);
 		
-		PageManager.getInstance().setCurrentPage(PageType.BATTLE_ZONE);
+		//PageManager.getInstance().changePage(PageType.BATTLE_ZONE);
 	}
 	
 	private void openInventory() {
@@ -119,6 +121,6 @@ public class PageBattleZone extends Page {
 		System.out.println("성공적으로 도망쳤다.");
 		System.out.println();
 		
-		PageManager.getInstance().setCurrentPage(PageType.WORLD);
+		PageManager.getInstance().changePage(PageType.WORLD);
 	}
 }

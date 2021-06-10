@@ -14,6 +14,7 @@ public class PageManager {
 	private HashMap<PageType, Page> pageMap = new HashMap<PageType, Page>();
 
 	private Page currentPage;
+	private Page prevPage;
 	
 	private static PageManager instance;
 	public static PageManager getInstance() {
@@ -37,36 +38,21 @@ public class PageManager {
 		return currentPage.getType();
 	}
 	
-	public void setCurrentPage(Page page) {
+	public void changePage(PageType type) {
+		changePage(pageMap.get(type));
+	}
+	
+	public void changePage(Page page) {
+		prevPage = currentPage;
 		currentPage = page;
-	}
-	
-	public void setCurrentPage(PageType type) {
-		setCurrentPage(pageMap.get(type));
-	}
-
-	public void setCurrentPage(int index) {
-		PageType type = PageType.values()[index]; 
-		setCurrentPage(type);
-	}
-	
-	public void forceChangePage(Page page) {
-		setCurrentPage(page);
-		update();
-	}
-	
-	public void forceChangePage(PageType type) {
-		setCurrentPage(type);
-		update();
-	}
-	
-	public void worldMask() {
 		
+		if (prevPage != null)
+			prevPage.onDisable();
+		
+		currentPage.onEnable();
 	}
 	
 	public void update() {
-		currentPage.init();
-		currentPage.printName();
 		currentPage.printAction();
 	}
 	

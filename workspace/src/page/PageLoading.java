@@ -15,11 +15,6 @@ public class PageLoading extends Page {
 	public PageType getType() {
 		return PageType.LOADING;
 	}
-	
-	@Override
-	public void init() {
-		// do nothing.
-	}
 
 	@Override
 	public void printAction() {
@@ -28,9 +23,9 @@ public class PageLoading extends Page {
 		Player.getInstance().loadSaveFile();
 		
 		if (Player.getInstance().wasInit()) {
-			PageManager.getInstance().setCurrentPage(PageType.WORLD);	
+			PageManager.getInstance().changePage(PageType.WORLD);	
 		} else {
-			PageManager.getInstance().setCurrentPage(PageType.PROLOGUE);
+			PageManager.getInstance().changePage(PageType.PROLOGUE);
 		}
 	}
 }

@@ -17,10 +17,6 @@ public class PageChangePocketMon extends Page {
 	}
 	
 	@Override
-	public void init() {
-	}
-	
-	@Override
 	public void printAction() {
 		Player player = Player.getInstance();
 		
