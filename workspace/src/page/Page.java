@@ -15,7 +15,8 @@ public abstract class Page {
 	}
 	
 	public void onDisable() {}
+
+	public void onReturned(Page prevPage) {}
 	
 	public abstract void printAction();
-	
 }

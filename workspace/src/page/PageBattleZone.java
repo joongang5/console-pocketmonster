@@ -36,12 +36,21 @@ public class PageBattleZone extends Page {
 		mainPocketMon = Player.getInstance().getMainPocketMon();
 		wildPocketMon = TableDataManager.getInstance().monsterTable.spawnRandom();
 		wildPocketMon.teamType = TeamType.ENEMY;
+
+		System.out.printf("앗! 야생의 %s(이)가 나타났다!\n", wildPocketMon.name);
+	}
+	
+	@Override
+	public void onReturned(Page prevPage) {
+		if (prevPage == null)
+			return;
+		
+		if (prevPage.getType() == PageType.CHANGE_POCKET_MON)
+			isPlaying = true;
 	}
 	
 	@Override
 	public void printAction() {
-		System.out.printf("앗! 야생의 %s(이)가 나타났다!\n", wildPocketMon.name);
-		
 		while (isPlaying) {
 			System.out.println("[1] 싸우다 [2] 포켓몬 교체 [3] 가방 [4] 도망치다");
 			
@@ -52,6 +61,7 @@ public class PageBattleZone extends Page {
 				break;
 			case 2:
 				changePocketMon();
+				isPlaying = false;
 				break;
 			case 3:
 				openInventory();
@@ -61,7 +71,6 @@ public class PageBattleZone extends Page {
 				break;
 			}	
 		}
-		System.out.println();
 	}
 	
 	private void battle() {
@@ -106,9 +115,7 @@ public class PageBattleZone extends Page {
 	}
 	
 	private void changePocketMon() {
-		PageManager.getInstance().changePage(PageType.CHANGE_POCKET_MON);
-		
-		//PageManager.getInstance().changePage(PageType.BATTLE_ZONE);
+		PageManager.getInstance().pushPage(PageType.CHANGE_POCKET_MON);
 	}
 	
 	private void openInventory() {
