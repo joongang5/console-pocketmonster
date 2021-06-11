@@ -42,7 +42,7 @@ public class PageChangePocketMon extends Page {
 			int index = input - 1;
 			
 			if (input == cancelNumber) {
-				System.out.println("취소되었습니다.");
+				System.out.println("취소되었습니다.\n");
 				PageManager.getInstance().popPage();
 				break;
 			}

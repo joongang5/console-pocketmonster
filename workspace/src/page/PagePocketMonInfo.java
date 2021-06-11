@@ -34,8 +34,6 @@ public class PagePocketMonInfo extends Page {
 			System.out.printf("[%d] %s || LV : %d || HP : (%d / %d) || EXP : (%d / %d)\n", i + 1, pm.name, pm.level, pm.hp, pm.maxHp, pm.exp, pm.maxExp);
 		}
 		
-		System.out.println();
-		
 		PageManager.getInstance().changePage(PageType.WORLD);
 	}
 }

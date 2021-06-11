@@ -10,7 +10,7 @@ public abstract class Page {
 	
 	public void onEnable() {
 		if (name != null) {
-			System.out.printf("[==%s==]\n", name);
+			System.out.printf("\n[==%s==]\n", name);
 		}
 	}
 	

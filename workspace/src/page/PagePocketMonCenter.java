@@ -37,14 +37,13 @@ public class PagePocketMonCenter extends Page {
 		case 2:
 			exit();
 			break;
-		}	
-		System.out.println();
+		}
 	}
 	
 	private void recovery() {
 		ArrayList<PocketMon> list = Player.getInstance().pocketMonList;
 		for (PocketMon pm : list) {
-			pm.onRecovery(HEAL_POWER);;
+			pm.onRecovery(HEAL_POWER);
 		}
 		
 		System.out.println("치료가 완료되었습니다.");
