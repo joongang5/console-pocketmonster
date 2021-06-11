@@ -54,6 +54,10 @@ public class Player extends Character {
 		return pocketMonList.get(MAIN_SLOT_INDEX);
 	}
 	
+	public boolean isMainPocketMon(PocketMon pocketMon) {
+		return pocketMon == getMainPocketMon();
+	}
+	
 	public PocketMon changeMainPocketMon(int index) {
 		if (index < 0 || index >= pocketMonList.size())
 			return null;

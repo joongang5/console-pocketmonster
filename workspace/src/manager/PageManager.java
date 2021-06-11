@@ -33,6 +33,7 @@ public class PageManager {
 		pageMap.put(PageType.POCKET_MON_CENTER, new PagePocketMonCenter());
 		pageMap.put(PageType.EXIT, new PageExit());
 		pageMap.put(PageType.CHANGE_POCKET_MON, new PageChangePocketMon());
+		pageMap.put(PageType.POCKET_MON_INFO, new PagePocketMonInfo());
 	}
 
 	public Page getCurrentPage() {
@@ -103,6 +104,7 @@ public class PageManager {
 		for (Map.Entry<PageType, Page> entry : pageMap.entrySet()) {
 			if (entry.getKey() == PageType.BATTLE_ZONE || 
 				entry.getKey() == PageType.POCKET_MON_CENTER ||
+				entry.getKey() == PageType.POCKET_MON_INFO ||
 				entry.getKey() == PageType.EXIT) {
 				list.add(entry.getValue());
 			}

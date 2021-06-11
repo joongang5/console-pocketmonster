@@ -5,10 +5,11 @@ public enum PageType {
 	LOADING(1),
 	BATTLE_ZONE(2),
 	POCKET_MON_CENTER(3),
-	WORLD(4),
-	PROLOGUE(5),
-	EXIT(6),
-	CHANGE_POCKET_MON(7);
+	POCKET_MON_INFO(4),
+	WORLD(5),
+	PROLOGUE(6),
+	EXIT(7),
+	CHANGE_POCKET_MON(8);
 	
 	private int value;
 	

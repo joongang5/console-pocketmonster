@@ -24,7 +24,7 @@ public class PageChangePocketMon extends Page {
 		for (int i = 0; i < player.pocketMonList.size(); i++) {
 			PocketMon pm = player.pocketMonList.get(i);
 
-			if (pm == player.getMainPocketMon()) {
+			if (player.isMainPocketMon(pm)) {
 				System.out.printf("%-5s", "전투중");
 			} else {
 				System.out.printf("%-6s", " ");
