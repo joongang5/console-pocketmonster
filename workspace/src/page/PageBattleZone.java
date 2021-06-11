@@ -52,8 +52,9 @@ public class PageBattleZone extends Page {
 	@Override
 	public void printAction() {
 		while (isPlaying) {
-			System.out.println("[1] 싸우다 [2] 포켓몬 교체 [3] 가방 [4] 도망치다");
+			printPocketMonInfo();
 			
+			System.out.println("[1] 싸우다 [2] 포켓몬 교체 [3] 가방 [4] 도망치다");
 			int input = InputManager.getInstance().getScanner().nextInt();
 			switch (input) {
 			case 1:
@@ -71,6 +72,11 @@ public class PageBattleZone extends Page {
 				break;
 			}	
 		}
+	}
+	
+	private void printPocketMonInfo() {
+		System.out.printf("%s || LV : %d || HP : (%d / %d)\n", wildPocketMon.name, wildPocketMon.level, wildPocketMon.hp, wildPocketMon.maxHp);
+		System.out.printf("%s || LV : %d || HP : (%d / %d)\n", mainPocketMon.name, mainPocketMon.level, mainPocketMon.hp, mainPocketMon.maxHp);
 	}
 	
 	private void battle() {
