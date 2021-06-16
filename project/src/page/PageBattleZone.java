@@ -45,8 +45,10 @@ public class PageBattleZone extends Page {
 		if (prevPage == null)
 			return;
 		
-		if (prevPage.getType() == PageType.CHANGE_POCKET_MON)
-			isPlaying = true;
+		if (prevPage.getType() == PageType.CHANGE_POCKET_MON ||
+			prevPage.getType() == PageType.INVENTORY) {
+			isPlaying = true;	
+		}
 	}
 	
 	@Override
@@ -66,11 +68,12 @@ public class PageBattleZone extends Page {
 				break;
 			case 3:
 				openInventory();
+				isPlaying = false;
 				break;
 			case 4:
 				escape();
 				break;
-			}	
+			}
 		}
 	}
 	
@@ -125,7 +128,7 @@ public class PageBattleZone extends Page {
 	}
 	
 	private void openInventory() {
-		System.out.println("미구현");
+		PageManager.getInstance().pushPage(PageType.INVENTORY);
 	}
 	
 	private void escape() {

@@ -34,6 +34,7 @@ public class PageManager {
 		pageMap.put(PageType.EXIT, new PageExit());
 		pageMap.put(PageType.CHANGE_POCKET_MON, new PageChangePocketMon());
 		pageMap.put(PageType.POCKET_MON_INFO, new PagePocketMonInfo());
+		pageMap.put(PageType.INVENTORY, new PageInventory());
 	}
 
 	public Page getCurrentPage() {
