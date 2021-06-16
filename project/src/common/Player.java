@@ -11,6 +11,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import enums.TeamType;
+import manager.SpawnManager;
 import manager.TableDataManager;
 
 public class Player extends Character {
@@ -118,7 +119,7 @@ public class Player extends Character {
 				
 				int id = ((Long)pocketMonObj.get("id")).intValue();
 				
-				PocketMon pocketMon = TableDataManager.getInstance().monsterTable.spawn(id);
+				PocketMon pocketMon = SpawnManager.getInstance().spawnPocketMon(id);
 				pocketMon.level = ((Long)pocketMonObj.get("level")).intValue();
 				pocketMon.hp = ((Long)pocketMonObj.get("hp")).intValue();
 				pocketMon.maxHp = ((Long)pocketMonObj.get("maxHp")).intValue();

@@ -7,6 +7,7 @@ import common.PocketMon;
 import enums.PageType;
 import enums.TeamType;
 import manager.PageManager;
+import manager.SpawnManager;
 import manager.InputManager;
 import manager.TableDataManager;
 
@@ -30,7 +31,7 @@ public class PagePrologue extends Page {
 		String[] names = {"피카츄", "파이리", "꼬부기", "이상해씨"};
 		
 		for (String name : names) {
-			PocketMon pm = TableDataManager.getInstance().monsterTable.spawn(name);
+			PocketMon pm = SpawnManager.getInstance().spawnPocketMon(name);
 			pm.teamType = TeamType.FRIENDLY;
 			pocketMonList.add(pm);
 		}

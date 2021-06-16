@@ -8,8 +8,8 @@ import common.Skill;
 import enums.PageType;
 import enums.TeamType;
 import manager.PageManager;
+import manager.SpawnManager;
 import manager.InputManager;
-import manager.TableDataManager;
 
 public class PageBattleZone extends Page {
 
@@ -34,7 +34,7 @@ public class PageBattleZone extends Page {
 		isPlaying = true;
 		
 		mainPocketMon = Player.getInstance().getMainPocketMon();
-		wildPocketMon = TableDataManager.getInstance().monsterTable.spawnRandom();
+		wildPocketMon = SpawnManager.getInstance().spawnRandomPocketMon();
 		wildPocketMon.teamType = TeamType.ENEMY;
 
 		System.out.printf("앗! 야생의 %s(이)가 나타났다!\n", wildPocketMon.name);

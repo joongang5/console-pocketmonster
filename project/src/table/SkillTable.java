@@ -11,30 +11,19 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import common.Skill;
 import enums.SkillType;
-
-class SkillData {
-	public int id;
-	public String name;
-	public SkillType type;
-	public int level;
-	public int value;
-	public int sp;
-}
+import table.data.SkillData;
 
 public class SkillTable {
 
 	private HashMap<Integer, SkillData> map = new HashMap<Integer, SkillData>();
 	
-	public Skill get(int id) {
-		SkillData data = map.get(id);
-		
-		return new Skill(data.id, data.name, data.type, data.level, data.value, data.sp);
+	public SkillData get(int id) {
+		return map.get(id);
 	}
 	
-	public ArrayList<Skill> getSkillList(int[] skillIds) {
-		ArrayList<Skill> skillList = new ArrayList<Skill>();
+	public ArrayList<SkillData> getSkillList(int[] skillIds) {
+		ArrayList<SkillData> skillList = new ArrayList<SkillData>();
 		for (int id : skillIds) {
 			skillList.add(get(id));
 		}
