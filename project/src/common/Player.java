@@ -16,7 +16,8 @@ import manager.TableDataManager;
 
 public class Player extends Character {
 
-	public ArrayList<PocketMon> pocketMonList = new ArrayList<PocketMon>();
+	public Inventory inventory;
+	public ArrayList<PocketMon> pocketMonList;
 	
 	private final int MAIN_SLOT_INDEX = 0;
 
@@ -30,6 +31,9 @@ public class Player extends Character {
 	
 	private Player() {
 		teamType = TeamType.FRIENDLY;
+
+		inventory = new Inventory();
+		pocketMonList = new ArrayList<PocketMon>();
 	}
 	
 	public boolean wasInit() {

@@ -2,8 +2,10 @@ package manager;
 
 import java.util.ArrayList;
 
+import common.Item;
 import common.PocketMon;
 import common.Skill;
+import table.data.ItemData;
 import table.data.MonsterData;
 import table.data.SkillData;
 
@@ -57,5 +59,11 @@ public class SpawnManager {
 		SkillData data = TableDataManager.getInstance().skillTable.get(id);
 		
 		return new Skill(data.id, data.name, data.type, data.level, data.value, data.sp);
+	}
+	
+	public Item spawnItem(int id) {
+		ItemData data = TableDataManager.getInstance().itemTable.get(id);
+		
+		return new Item(data);
 	}
 }
