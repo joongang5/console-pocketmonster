@@ -2,6 +2,8 @@ package common;
 
 import java.util.ArrayList;
 
+import item.Item;
+
 public class Inventory {
 
 	private ArrayList<Item> itemList;

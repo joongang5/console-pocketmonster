@@ -43,16 +43,16 @@ public class PageChangePocketMon extends Page {
 			
 			if (input == cancelNumber) {
 				System.out.println("취소되었습니다.\n");
-				PageManager.getInstance().popPage();
 				break;
 			}
 			
 			PocketMon mainPocketMon = player.changeMainPocketMon(index);
 			if (mainPocketMon != null) {
 				System.out.printf("교체에 성공했습니다. 현재 포켓몬 : %s\n", mainPocketMon.name);
-				PageManager.getInstance().popPage();
 				break;
 			}
 		}
+		
+		PageManager.getInstance().popPage();
 	}
 }

@@ -1,4 +1,4 @@
-package common;
+package item;
 
 import table.data.ItemData;
 

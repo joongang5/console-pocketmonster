@@ -2,9 +2,9 @@ package manager;
 
 import java.util.ArrayList;
 
-import common.Item;
 import common.PocketMon;
 import common.Skill;
+import item.Item;
 import table.data.ItemData;
 import table.data.MonsterData;
 import table.data.SkillData;

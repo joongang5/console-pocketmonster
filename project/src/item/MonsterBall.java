@@ -1,4 +1,4 @@
-package common;
+package item;
 
 public class MonsterBall {
 

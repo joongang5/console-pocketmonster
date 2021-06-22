@@ -2,9 +2,9 @@ package page;
 
 import java.util.ArrayList;
 
-import common.Item;
 import common.Player;
 import enums.PageType;
+import item.Item;
 import manager.InputManager;
 import manager.PageManager;
 
@@ -37,16 +37,16 @@ public class PageInventory extends Page {
 			
 			if (input == cancelNumber) {
 				System.out.println("취소되었습니다.");
-				PageManager.getInstance().popPage();
 				break;
 			}
 			
 			Item item = itemList.get(index);
 			if (item != null) {
 				item.use();
-				PageManager.getInstance().popPage();
 				break;
 			}
 		}
+		
+		PageManager.getInstance().popPage();
 	}
 }
