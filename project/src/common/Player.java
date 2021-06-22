@@ -34,6 +34,8 @@ public class Player extends Character {
 
 		inventory = new Inventory();
 		pocketMonList = new ArrayList<PocketMon>();
+		
+		inventory.addItem(SpawnManager.getInstance().spawnMonsterBall());
 	}
 	
 	public boolean wasInit() {
@@ -74,6 +76,10 @@ public class Player extends Character {
 	
 	public void addPocketMon(PocketMon pocketMon) {
 		pocketMonList.add(pocketMon);
+	}
+	
+	public boolean hasPocketMon(PocketMon pocketMon) {
+		return pocketMonList.contains(pocketMon);
 	}
 	
 	@SuppressWarnings("unchecked")

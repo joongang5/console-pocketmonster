@@ -3,13 +3,24 @@ package page;
 import java.util.ArrayList;
 
 import common.Player;
+import common.PocketMon;
 import enums.PageType;
 import item.Item;
 import manager.InputManager;
 import manager.PageManager;
 
+class PageInventoryData extends PageData {
+	public PocketMon target;
+	
+	public PageInventoryData(PocketMon target) {
+		this.target = target;
+	}
+}
+
 public class PageInventory extends Page {
 
+	private PageInventoryData pageData;
+	
 	public PageInventory() {
 		name = "가방";
 	}
@@ -17,6 +28,11 @@ public class PageInventory extends Page {
 	@Override
 	public PageType getType() {
 		return PageType.INVENTORY;
+	}
+	
+	@Override
+	public void setPageData(PageData data) {
+		this.pageData = (PageInventoryData)data;
 	}
 	
 	@Override
@@ -35,6 +51,8 @@ public class PageInventory extends Page {
 			int input = InputManager.getInstance().getScanner().nextInt();
 			int index = input - 1;
 			
+			System.out.println();
+			
 			if (input == cancelNumber) {
 				System.out.println("취소되었습니다.");
 				break;
@@ -42,7 +60,7 @@ public class PageInventory extends Page {
 			
 			Item item = itemList.get(index);
 			if (item != null) {
-				item.use();
+				item.use(pageData.target);
 				break;
 			}
 		}

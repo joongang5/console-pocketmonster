@@ -8,6 +8,8 @@ public abstract class Page {
 	
 	public abstract PageType getType();
 	
+	public void setPageData(PageData data) {}
+	
 	public void onEnable() {
 		if (name != null) {
 			System.out.printf("\n[==%s==]\n", name);

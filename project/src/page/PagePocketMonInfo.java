@@ -28,12 +28,12 @@ public class PagePocketMonInfo extends Page {
 			if (Player.getInstance().isMainPocketMon(pm)) {
 				System.out.printf("%-5s", "출전중");
 			} else {
-				System.out.printf("%-6s", " ");
+				System.out.printf("%-8s", " ");
 			}
 			
 			System.out.printf("[%d] %s || LV : %d || HP : (%d / %d) || EXP : (%d / %d)\n", i + 1, pm.name, pm.level, pm.hp, pm.maxHp, pm.exp, pm.maxExp);
 		}
 		
-		PageManager.getInstance().changePage(PageType.WORLD);
+		PageManager.getInstance().changePage(PageType.WORLD, null);
 	}
 }

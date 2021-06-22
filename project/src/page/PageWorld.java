@@ -31,7 +31,7 @@ public class PageWorld extends Page {
 			int input = InputManager.getInstance().getScanner().nextInt();
 			int areaIndex = input - 1;
 			if (areaIndex >= 0 && areaIndex < areaList.size()) {
-				PageManager.getInstance().changePage(areaList.get(areaIndex));
+				PageManager.getInstance().changePage(areaList.get(areaIndex), null);
 				break;
 			}
 			

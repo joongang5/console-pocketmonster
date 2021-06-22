@@ -23,9 +23,9 @@ public class PageLoading extends Page {
 		Player.getInstance().loadSaveFile();
 		
 		if (Player.getInstance().wasInit()) {
-			PageManager.getInstance().changePage(PageType.WORLD);	
+			PageManager.getInstance().changePage(PageType.WORLD, null);	
 		} else {
-			PageManager.getInstance().changePage(PageType.PROLOGUE);
+			PageManager.getInstance().changePage(PageType.PROLOGUE, null);
 		}
 	}
 }

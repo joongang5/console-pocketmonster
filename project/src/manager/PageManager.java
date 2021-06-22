@@ -52,11 +52,11 @@ public class PageManager {
 		return prevPage;
 	}
 	
-	public void changePage(PageType type) {
-		changePage(pageMap.get(type));
+	public void changePage(PageType type, PageData pageData) {
+		changePage(pageMap.get(type), pageData);
 	}
 	
-	public void changePage(Page page) {
+	public void changePage(Page page, PageData pageData) {
 		if (pageStack.isEmpty() == false)
 			prevPage = pageStack.pop();
 
@@ -65,10 +65,13 @@ public class PageManager {
 		if (prevPage != null)
 			prevPage.onDisable();	
 		
+		if (pageData != null)
+			page.setPageData(pageData);
+			
 		page.onEnable();
 	}
 	
-	public void pushPage(Page page) {
+	public void pushPage(Page page, PageData pageData) {
 		if (pageStack.isEmpty() == false)
 			prevPage = pageStack.peek();
 		
@@ -76,12 +79,15 @@ public class PageManager {
 		
 		if (prevPage != null)
 			prevPage.onDisable();
-		
+
+		if (pageData != null)
+			page.setPageData(pageData);
+			
 		page.onEnable();
 	}
 	
-	public void pushPage(PageType type) {
-		pushPage(pageMap.get(type));
+	public void pushPage(PageType type, PageData pageData) {
+		pushPage(pageMap.get(type), pageData);
 	}
 	
 	public void popPage() {

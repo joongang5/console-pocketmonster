@@ -16,8 +16,6 @@ public class PageBattleZone extends Page {
 	private PocketMon mainPocketMon;
 	private PocketMon wildPocketMon;
 	
-	private boolean isPlaying;
-	
 	public PageBattleZone() {
 		name = "전투 지역";
 	}
@@ -31,8 +29,6 @@ public class PageBattleZone extends Page {
 	public void onEnable() {
 		super.onEnable();
 		
-		isPlaying = true;
-		
 		mainPocketMon = Player.getInstance().getMainPocketMon();
 		wildPocketMon = SpawnManager.getInstance().spawnRandomPocketMon();
 		wildPocketMon.teamType = TeamType.ENEMY;
@@ -41,19 +37,11 @@ public class PageBattleZone extends Page {
 	}
 	
 	@Override
-	public void onReturned(Page prevPage) {
-		if (prevPage == null)
-			return;
-		
-		if (prevPage.getType() == PageType.CHANGE_POCKET_MON ||
-			prevPage.getType() == PageType.INVENTORY) {
-			isPlaying = true;	
-		}
-	}
-	
-	@Override
 	public void printAction() {
-		while (isPlaying) {
+		while (true) {
+			if (pauseOrEndBattle())
+				return;
+			
 			printPocketMonInfo();
 			
 			System.out.println("[1] 싸우다 [2] 포켓몬 교체 [3] 가방 [4] 도망치다");
@@ -64,17 +52,27 @@ public class PageBattleZone extends Page {
 				break;
 			case 2:
 				changePocketMon();
-				isPlaying = false;
 				break;
 			case 3:
 				openInventory();
-				isPlaying = false;
 				break;
 			case 4:
 				escape();
-				break;
+				return;
 			}
 		}
+	}
+	
+	private boolean pauseOrEndBattle() {
+		if (PageManager.getInstance().getCurrentPageType() != getType())
+			return true;
+		
+		if (Player.getInstance().hasPocketMon(wildPocketMon)) {
+			PageManager.getInstance().changePage(PageType.WORLD, null);
+			return true;	
+		}
+		
+		return false;
 	}
 	
 	private void printPocketMonInfo() {
@@ -103,39 +101,37 @@ public class PageBattleZone extends Page {
 		System.out.println("====================");
 		
 		if (wildPocketMon.isAlive() == false) {
-			isPlaying = false;
-			
 			System.out.printf("적의 %s는(은) 쓰러졌다!!\n", wildPocketMon.name);
 
 			mainPocketMon.addExp(wildPocketMon.exp);
-			PageManager.getInstance().changePage(PageType.WORLD);
+			System.out.printf("경험치를 %d 획득했습니다.\n", wildPocketMon.exp);
+			
+			PageManager.getInstance().changePage(PageType.WORLD, null);
 			return;
 		}
 		
 		wildPocketMon.fireSkillByRandom(mainPocketMon);
 		
+		System.out.println();
+		
 		if (mainPocketMon.isAlive() == false) {
-			isPlaying = false;
-			
 			System.out.printf("%s가(이) 쓰러졌다!!\n", mainPocketMon.name);
-			PageManager.getInstance().changePage(PageType.WORLD);
+			PageManager.getInstance().changePage(PageType.WORLD, null);
 			return;
 		}
 	}
 	
 	private void changePocketMon() {
-		PageManager.getInstance().pushPage(PageType.CHANGE_POCKET_MON);
+		PageManager.getInstance().pushPage(PageType.CHANGE_POCKET_MON, null);
 	}
 	
 	private void openInventory() {
-		PageManager.getInstance().pushPage(PageType.INVENTORY);
+		PageManager.getInstance().pushPage(PageType.INVENTORY, new PageInventoryData(wildPocketMon));
 	}
 	
 	private void escape() {
-		isPlaying = false;
-		
 		System.out.println("성공적으로 도망쳤다.");
 		
-		PageManager.getInstance().changePage(PageType.WORLD);
+		PageManager.getInstance().changePage(PageType.WORLD, null);
 	}
 }

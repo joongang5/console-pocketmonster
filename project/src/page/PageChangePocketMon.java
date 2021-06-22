@@ -27,14 +27,14 @@ public class PageChangePocketMon extends Page {
 			if (player.isMainPocketMon(pm)) {
 				System.out.printf("%-5s", "전투중");
 			} else {
-				System.out.printf("%-6s", " ");
+				System.out.printf("%-8s", " ");
 			}
 			
 			System.out.printf("[%d] %s || LV : %d || HP : (%d / %d) || EXP : (%d / %d)\n", i + 1, pm.name, pm.level, pm.hp, pm.maxHp, pm.exp, pm.maxExp);
 		}
 		
 		int cancelNumber = player.pocketMonList.size() + 1;
-		System.out.printf("%-6s[%d] 취소\n", " ",cancelNumber);
+		System.out.printf("%-8s[%d] 취소\n", " ",cancelNumber);
 		
 		while (true) {
 			System.out.print("교체할 포켓몬을 선택해주세요 : ");

@@ -12,7 +12,7 @@ import common.Player;
 public class GameManager {
 
 	public void init() {
-		PageManager.getInstance().changePage(PageType.LOADING);
+		PageManager.getInstance().changePage(PageType.LOADING, null);
 	}
 	
 	public void release() {

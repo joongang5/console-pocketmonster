@@ -1,5 +1,6 @@
 package item;
 
+import common.PocketMon;
 import table.data.ItemData;
 
 public class Item {
@@ -10,7 +11,7 @@ public class Item {
 	public String name;
 	public String desc;
 	public int count;
-	
+
 	public Item(ItemData data) {
 		id = data.id;
 		type = data.type;
@@ -20,7 +21,7 @@ public class Item {
 		count = 1;
 	}
 	
-	public void use() {
-		System.out.printf("%s(을)를 사용했습니다.\n", name);
+	public void use(PocketMon target) {
+		System.out.printf("%s에게 %s(을)를 사용했다!\n", target.name, name);
 	}
 }

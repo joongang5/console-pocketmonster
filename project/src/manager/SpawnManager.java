@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import common.PocketMon;
 import common.Skill;
 import item.Item;
+import item.MonsterBall;
 import table.data.ItemData;
 import table.data.MonsterData;
 import table.data.SkillData;
@@ -20,7 +21,6 @@ public class SpawnManager {
 	}
 	
 	private SpawnManager() {}
-	
 
 	public PocketMon spawnPocketMon(String name) {
 		MonsterData data = TableDataManager.getInstance().monsterTable.getData(name);
@@ -65,5 +65,11 @@ public class SpawnManager {
 		ItemData data = TableDataManager.getInstance().itemTable.get(id);
 		
 		return new Item(data);
+	}
+	
+	public MonsterBall spawnMonsterBall() {
+		ItemData data = TableDataManager.getInstance().itemTable.get(1);
+		
+		return new MonsterBall(data);		
 	}
 }

@@ -53,6 +53,6 @@ public class PagePocketMonCenter extends Page {
 		System.out.println("안녕히가세요!");
 		System.out.println("철컥-");
 		
-		PageManager.getInstance().changePage(PageType.WORLD);
+		PageManager.getInstance().changePage(PageType.WORLD, null);
 	}
 }
